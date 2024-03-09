@@ -1,0 +1,32 @@
+type Query {
+    customerById(id: ID): Customer
+    user(id: ID): User
+}
+
+type Mutation {
+    insert(name: String): Customer
+    createUser(input: UserInput): User
+}
+
+type Customer {
+    customerId: ID!
+    name: String
+}
+
+type User {
+    userId: ID!
+    name: String
+    password: String
+    role: Role
+}
+
+input UserInput {
+    name: String!
+    password: String!
+    role: Role!
+}
+
+enum Role {
+    USER
+    ADMIN
+}
